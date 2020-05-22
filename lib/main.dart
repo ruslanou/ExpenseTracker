@@ -30,7 +30,6 @@ class MyHomePage extends StatelessWidget {
       amount: 55000,
       date: DateTime.now(),
     ),
-
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,20 +47,32 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Column(
-              children: transaction.map((trx) {
-                return Card(child: Row(
-                  children: <Widget>[
-                    Container(child: Text(trx.amount.toString())),
-                    Column(
-                      children: <Widget>[
-                        Text(trx.title),
-                        Text(trx.date.toString())
-                      ],
-                    )
-                  ],
-                ));
-              }).toList()
-            )
+                children: transaction.map((trx) {
+              return Card(
+                  child: Row(
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 15,
+                    ),
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.black,
+                      width: 2,
+                    )),
+                    padding: EdgeInsets.all(10),
+                    child: Text(trx.amount.toString()),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      Text(trx.title),
+                      Text(trx.date.toString())
+                    ],
+                  )
+                ],
+              ));
+            }).toList())
           ],
         ));
   }
