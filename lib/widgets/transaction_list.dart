@@ -21,14 +21,14 @@ class TransactionList extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: Colors.teal,
+                  color: Theme.of(context).primaryColorDark,
                   width: 2,
                 )),
                 padding: EdgeInsets.all(10),
                 child: Text(
                   'Rp.${transaction[index].amount}',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.teal),
+                      fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor),
                 ),
               ),
               Column(
