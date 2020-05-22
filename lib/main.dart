@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: MyHomePage(),
     );
@@ -27,8 +28,15 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: (){},
+        ),
         appBar: AppBar(
           title: Text('Flutter App'),
+          actions: <Widget>[
+            IconButton(icon: Icon(Icons.add), onPressed: (){},)
+          ],
         ),
         body: SingleChildScrollView(
                   child: Column(
