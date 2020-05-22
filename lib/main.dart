@@ -13,10 +13,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.teal
+        primarySwatch: Colors.teal,
+        fontFamily: 'QuickSand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            )),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Personal Expenses',
       home: MyHomePage(),
     );
   }
@@ -29,18 +45,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransaction = [
-    Transaction(
-      id: '1',
-      title: 'Beli baju',
-      amount: 50000,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: '2',
-      title: 'Beli celana',
-      amount: 55000,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: '1',
+    //   title: 'Beli baju',
+    //   amount: 50000,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: '2',
+    //   title: 'Beli celana',
+    //   amount: 55000,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(String title, int amount) {
@@ -60,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         context: context,
         builder: (_) {
           return GestureDetector(
-            onTap: (){},
+            onTap: () {},
             child: NewTransaction(_addNewTransaction),
             behavior: HitTestBehavior.opaque,
           );
@@ -75,7 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () => _startAddNewTransaction(context),
         ),
         appBar: AppBar(
-          title: Text('Flutter App'),
+          title: Text(
+            'Personal Expenses',
+            style: TextStyle(fontFamily: 'Opensans'),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.add),
