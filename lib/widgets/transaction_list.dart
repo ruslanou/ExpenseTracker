@@ -9,7 +9,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 440,
+      height: 550,
       child: transaction.isEmpty
           ? Column(
               children: <Widget>[
